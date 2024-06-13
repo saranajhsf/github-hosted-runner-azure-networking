@@ -71,5 +71,5 @@ az resource create `
     --api-version 2024-04-02
 
 # Cleanup instruction
-Write-Output "To clean up and delete resources run the following command:"
+Write-Output "To clean up and delete resources run the following command given below:"
 Write-Output "az group delete --resource-group $env:RESOURCE_GROUP_NAME"
