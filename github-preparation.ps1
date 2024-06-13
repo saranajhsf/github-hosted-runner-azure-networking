@@ -5,14 +5,14 @@
 $ErrorActionPreference = "Stop"
 
 # Set environment variables
-$env:AZURE_LOCATION = "australiaeast"
-$env:SUBSCRIPTION_ID = "8c6ccaa9-9f43-4f74-a91e-12a9f922d72c"
+$env:AZURE_LOCATION = "westus"
+$env:SUBSCRIPTION_ID = "7842c962-0700-4f03-9997-f833bc947a85"
 $env:RESOURCE_GROUP_NAME = "gh-runner-demo-rg-001"
 $env:VNET_NAME = "gh-runner-demo-vnet-001"
 $env:SUBNET_NAME = "gh-runner-demo-subnet-002"
 $env:NSG_NAME = "gh-runner-demo-nsg-001"
 $env:NETWORK_SETTINGS_RESOURCE_NAME = "gh-runner-demo-network-settings-001"
-$env:DATABASE_ID = "166257474"
+$env:DATABASE_ID = "172387705"
 # $env:ADDRESS_PREFIX = "10.0.0.0/16"
 # $env:SUBNET_PREFIX = "10.0.0.0/24"
 
@@ -30,7 +30,7 @@ az provider register --namespace GitHub.Network
 
 # Create resource group
 # Write-Output "Create resource group $env:RESOURCE_GROUP_NAME at $env:AZURE_LOCATION"
-# az group create --name $env:RESOURCE_GROUP_NAME --location $env:AZURE_LOCATION
+ az group create --name $env:RESOURCE_GROUP_NAME --location $env:AZURE_LOCATION
 
 # Create NSG rules deployed with 'actions-nsg-deployment.bicep' file
 Write-Output "Create NSG rules deployed with 'actions-nsg-deployment.bicep' file"
@@ -38,7 +38,7 @@ az deployment group create --resource-group $env:RESOURCE_GROUP_NAME --template-
 
 # Create vnet and subnet
 # Write-Output "Create vnet $env:VNET_NAME and subnet $env:SUBNET_NAME"
-# az network vnet create --resource-group $env:RESOURCE_GROUP_NAME --name $env:VNET_NAME --address-prefix $env:ADDRESS_PREFIX --subnet-name $env:SUBNET_NAME --subnet-prefixes $env:SUBNET_PREFIX
+ az network vnet create --resource-group $env:RESOURCE_GROUP_NAME --name $env:VNET_NAME --address-prefix $env:ADDRESS_PREFIX --subnet-name $env:SUBNET_NAME --subnet-prefixes $env:SUBNET_PREFIX
 
 # Delegate subnet to GitHub.Network/networkSettings and apply NSG rules
 Write-Output "Delegate subnet to GitHub.Network/networkSettings and apply NSG rules"
